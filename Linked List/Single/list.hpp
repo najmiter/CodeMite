@@ -10,7 +10,7 @@ class List
 {
 private:
   struct Node { 
-    DT _data; // int32_t _data; 
+    DT _data; // int32_t _data; -> generic type
     Node* _link;
   };
 
