@@ -81,6 +81,7 @@ public:
   {
     if (_at > this->size())
       throw std::out_of_range("index " + std::to_string(_at) + " out of the bounds of the list");
+    else if (_at == this->size()) { this->add(_data); return; }
 
     auto room{ new Node{_data, nullptr} };
 
@@ -89,7 +90,6 @@ public:
       room->_link = this->m_Head;
       this->m_Head = room;
     }
-    else if (_at == this->size()) { this->add(_data); return; }
     else 
     {
       auto journey{ this->m_Head };
