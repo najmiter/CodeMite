@@ -9,7 +9,7 @@ class List
 {
 private:
   struct Node { 
-    DT _data;
+    DT _data; // int32_t _data; 
     Node* _link;
   };
 
@@ -102,6 +102,28 @@ public:
     this->m_Size++;
   }
 
+  ~List() 
+  {
+    this->mf_destroy(this->get_head());
+  }
+
+private:
+  Node* get_head() { return this->m_Head; }
+
+  void mf_destroy(Node* _node) // 90
+  {
+    if (_node)
+    {
+      this->mf_destroy(_node->_link);
+      delete _node;
+    }
+    else 
+    {
+      this->m_Size = 0;
+      this->m_Head = this->m_Tail = nullptr;
+      std::cout << "DESTROYED" << std::endl;
+    }
+  }
 
 private:
   Node* m_Head{};
