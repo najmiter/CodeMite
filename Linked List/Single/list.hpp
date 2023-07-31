@@ -102,6 +102,24 @@ public:
     this->m_Size++;
   }
 
+  void reverse()
+  {
+    if (this->size() <= 1) return;
+
+    this->m_Tail = this->m_Head;
+    auto journey{ this->get_head()->_link };
+    while (journey)
+    {
+      auto partner{ journey->_link };
+      journey->_link = this->m_Head;
+      this->m_Head = journey;
+      journey = partner;
+    }
+
+    this->m_Tail->_link = nullptr;
+
+  }
+
   ~List() 
   {
     this->mf_destroy(this->get_head());
@@ -121,7 +139,7 @@ private:
     {
       this->m_Size = 0;
       this->m_Head = this->m_Tail = nullptr;
-      std::cout << "DESTROYED" << std::endl;
+      // std::cout << "DESTROYED" << std::endl;
     }
   }
 
