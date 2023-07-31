@@ -120,6 +120,27 @@ public:
 
   }
 
+  void sort()
+  {
+    auto journey{ this->get_head() };
+    while (journey)
+    {
+      // List::display(*this);
+      auto hunter{ journey->_link };
+      auto partner{ journey };
+      while (hunter)
+      {
+        if (hunter->_data < partner->_data)
+          partner = hunter;
+
+        hunter = hunter->_link;
+      }
+
+      std::swap(journey->_data, partner->_data);
+      journey = journey->_link;
+    }
+  }
+
   ~List() 
   {
     this->mf_destroy(this->get_head());
