@@ -3,6 +3,7 @@
 #include <iostream>
 #include <exception>
 #include <string>
+#include <algorithm>
 
 template<typename DT = int32_t>
 class List 
