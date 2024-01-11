@@ -26,7 +26,7 @@ main proc
      mov ecx, max_file_size
      call ReadFromFile
      
-     mov bytes_read, ecx
+     mov bytes_read, eax
 
      mov eax, file_handle
      call CloseFile
