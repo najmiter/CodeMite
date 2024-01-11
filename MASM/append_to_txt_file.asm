@@ -61,3 +61,42 @@ main proc
      invoke ExitProcess, 0
 main endp
 end main
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Method 2
+include irvine32.inc
+include macros.inc
+
+.data
+     filename       byte      "data.txt", 0
+     file_handle    dword     0
+     new_data       byte      "This is some data that we're going to append.", 10, 0
+     bytes_read     dword     0
+
+.code
+main proc
+     invoke CreateFile, \
+               addr filename, \
+               generic_write, \
+               file_share_read, \
+               0, open_always, \
+               file_attribute_normal, 0
+
+     mov file_handle, eax
+
+     invoke SetFilePointer, file_handle, 0, 0, file_end
+     
+     lea edx, new_data
+     mov ecx, lengthof new_data
+     invoke WriteFile, \
+          file_handle, \
+          addr new_data, \
+          lengthof new_data, \
+          addr bytes_read, 0
+
+     invoke CloseHandle, file_handle
+
+     invoke ExitProcess, 0
+main endp
+end main
