@@ -16,4 +16,4 @@
 
 const condition = true;
 
-true && console.log("TRUE");
+condition && console.log("TRUE");
