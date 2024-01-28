@@ -1,7 +1,7 @@
 let counter = 1;
 
 // while (true) {
-//     console.log("coutner:", counter);
+//     console.log("counter:", counter);
 //     counter++; // 7
 
 //     if (counter === 7) {
