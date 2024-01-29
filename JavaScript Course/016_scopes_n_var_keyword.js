@@ -6,7 +6,7 @@ if (true) {
         let other = 12;
     }
 
-    // console.log(other); // ERROR
+    // console.log(other); // ERROR, because `other` was not declared in this scope.
 }
 
 if (true) {
