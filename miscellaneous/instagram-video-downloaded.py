@@ -8,6 +8,7 @@ loader = instaloader.Instaloader(
     save_metadata=False
 )
 
+# replace with any valid post link
 url = 'https://www.instagram.com/p/C9Sj124xRsw/'
 
 shortcode = url.split("/")[-2]
