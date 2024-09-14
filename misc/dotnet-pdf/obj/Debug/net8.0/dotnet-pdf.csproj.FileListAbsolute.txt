@@ -35,7 +35,6 @@
 /Users/partialnerd/Desktop/CodeMite/CodeMite/misc/dotnet-pdf/obj/Debug/net8.0/dotnet-pdf.AssemblyInfoInputs.cache
 /Users/partialnerd/Desktop/CodeMite/CodeMite/misc/dotnet-pdf/obj/Debug/net8.0/dotnet-pdf.AssemblyInfo.cs
 /Users/partialnerd/Desktop/CodeMite/CodeMite/misc/dotnet-pdf/obj/Debug/net8.0/dotnet-pdf.csproj.CoreCompileInputs.cache
-/Users/partialnerd/Desktop/CodeMite/CodeMite/misc/dotnet-pdf/obj/Debug/net8.0/dotnet-pdf.sourcelink.json
 /Users/partialnerd/Desktop/CodeMite/CodeMite/misc/dotnet-pdf/obj/Debug/net8.0/dotnet-pdf.csproj.CopyComplete
 /Users/partialnerd/Desktop/CodeMite/CodeMite/misc/dotnet-pdf/obj/Debug/net8.0/dotnet-pdf.dll
 /Users/partialnerd/Desktop/CodeMite/CodeMite/misc/dotnet-pdf/obj/Debug/net8.0/refint/dotnet-pdf.dll
