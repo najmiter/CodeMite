@@ -31,7 +31,5 @@ namespace dotnet_pdf.src.Reader
       using var reader = new StreamReader($"{_path}template.txt");
       return reader.ReadToEnd();
     }
-
-
   }
 }
