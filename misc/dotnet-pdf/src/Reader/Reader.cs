@@ -1,8 +1,6 @@
-using System.IO;
-
 namespace dotnet_pdf.src.Reader
 {
-  record Record(string Name, DateOnly JoiningDate);
+  public record Record(string Name, DateOnly JoiningDate);
   class Reader()
   {
     readonly static string _path = $"{Directory.GetCurrentDirectory()}/assets/";
@@ -30,7 +28,8 @@ namespace dotnet_pdf.src.Reader
 
     public static string GetLetter()
     {
-      return new StreamReader($"{_path}template.txt").ReadToEnd();
+      using var reader = new StreamReader($"{_path}template.txt");
+      return reader.ReadToEnd();
     }
 
 

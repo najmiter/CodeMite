@@ -17,11 +17,12 @@ namespace dotnet_pdf
 			foreach (var record in reader.records)
 			{
 				if (record is null) break;
-				PrintLetter(letterTemplate, record.Name);
+				System.Console.WriteLine(record.JoiningDate.ToString("MMMM dd, yyyy"));
+				PrintLetter(letterTemplate, record);
 			}
 		}
 
-		static void PrintLetter(string letterTemplate, string name)
+		static void PrintLetter(string letterTemplate, Record record)
 		{
 			var year = DateTime.Now.Year;
 
@@ -52,7 +53,7 @@ namespace dotnet_pdf
 								.Column(column =>
 								{
 									column.Spacing(5);
-									MakeLetter(column, letterTemplate, name);
+									MakeLetter(column, letterTemplate, record);
 								});
 
 							layers
@@ -62,19 +63,28 @@ namespace dotnet_pdf
 
 							layers
 								.Layer()
-								.AlignRight().AlignBottom()
+								.AlignBottom().AlignCenter()
 								.PaddingRight(20).PaddingBottom(10)
-								.Text($"© MagiCoders - {year}").FontSize(16).SemiBold().FontColor(Colors.Grey.Lighten4);
+								.Row(row =>
+								{
+									row.AutoItem().PaddingTop(10).Text($"© MagiCoders - {year}").FontSize(12).SemiBold().FontColor("#ddd").AlignLeft();
+									row.ConstantItem(200);
+									row.AutoItem().Text($"Presented to {record.Name}\nID: {new Random().Next()}").FontSize(12).SemiBold().FontColor("#ddd").AlignLeft();
+								});
 						});
 					});
 			})
-			.GeneratePdf($"./letters/{name}.pdf");
+			.GeneratePdf($"./letters/{record.Name}.pdf");
 		}
 
-		static void MakeLetter(ColumnDescriptor column, string template, string name)
+		static void MakeLetter(ColumnDescriptor column, string template, Record record)
 		{
-			string firstName = name.Split(" ")[0];
-			template = template.Replace("|%FULL-NAME|%", name).Replace("|%FIRST-NAME|%", firstName);
+			string firstName = record.Name.Split(" ")[0];
+			template = template
+									.Replace("|%FULL-NAME|%", record.Name)
+									.Replace("|%FIRST-NAME|%", firstName)
+									.Replace("|%STARTING-DATE|%", record.JoiningDate.ToString("MMMM dd, yyyy"))
+									.Replace("|%ENDING-DATE|%", record.JoiningDate.AddMonths(1).ToString("MMMM dd, yyyy"));
 
 			var parts = template.Split("To Whom It May Concern:");
 			column.Item().Text(parts[0]);
