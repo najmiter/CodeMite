@@ -8,15 +8,15 @@ namespace dotnet_pdf.src.Reader
 
     public void ReadCsv(string fileName = "data.csv")
     {
-      var stream = new StreamReader($"{_path}{fileName}");
+      using var stream = new StreamReader($"{_path}{fileName}");
       var columns = stream.ReadLine();
-      if (columns is null) { stream.Close(); return; }
+      if (columns is null) { return; }
 
       while (true)
       {
         var record = stream.ReadLine();
 
-        if (record is null) { stream.Close(); break; }
+        if (record is null) { break; }
 
         var values = record.Split(",");
         string name = values[0];
