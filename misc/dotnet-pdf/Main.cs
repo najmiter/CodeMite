@@ -17,8 +17,9 @@ namespace dotnet_pdf
 			foreach (var record in reader.records)
 			{
 				if (record is null) break;
-				System.Console.WriteLine(record.JoiningDate.ToString("MMMM dd, yyyy"));
+				Console.WriteLine($"⭕️ Writing letter for {record.Name}...");
 				PrintLetter(letterTemplate, record);
+				Console.WriteLine($"✅ Printed letter for {record.Name}.\n");
 			}
 		}
 
