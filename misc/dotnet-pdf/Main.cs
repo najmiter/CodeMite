@@ -38,7 +38,7 @@ namespace dotnet_pdf
 
 						page.Header()
 							.PaddingTop(20)
-							.Text("Recommendation Letter by MagiCoders").AlignCenter()
+							.Text("Recommendation Letter by MagicalCompany").AlignCenter()
 							.Bold().FontSize(28).Underline().FontColor(Colors.Blue.Medium);
 
 						page.Content().Layers(layers =>
@@ -68,7 +68,7 @@ namespace dotnet_pdf
 								.PaddingRight(20).PaddingBottom(10)
 								.Row(row =>
 								{
-									row.AutoItem().PaddingTop(10).Text($"© MagiCoders - {year}").FontSize(12).SemiBold().FontColor("#ddd").AlignLeft();
+									row.AutoItem().PaddingTop(10).Text($"© MagicalCompany - {year}").FontSize(12).SemiBold().FontColor("#ddd").AlignLeft();
 									row.ConstantItem(200);
 									row.AutoItem().Text($"Presented to {record.Name}\nID: {new Random().Next()}").FontSize(12).SemiBold().FontColor("#ddd").AlignLeft();
 								});
