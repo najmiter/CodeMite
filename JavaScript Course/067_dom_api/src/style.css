@@ -1,0 +1,38 @@
+.container {
+  display: grid;
+  gap: 20px;
+}
+
+p {
+  color: rebeccapurple;
+}
+
+p[data-number-type=even] {
+  font-weight: bold;
+}
+
+p[data-number-type=odd] {
+  color: tomato;
+  font-style: italic;
+}
+
+.todos {
+  display: grid;
+  gap: 15px;
+}
+
+.todo {
+  padding: 10px;
+  border-radius: 10px;
+  border: solid #555;
+}
+
+.todo-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo[data-state=done] {
+  border-color: greenyellow;
+}
