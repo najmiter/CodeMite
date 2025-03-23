@@ -87,7 +87,7 @@ namespace dotnet_pdf
 									.Replace("|%STARTING-DATE|%", record.JoiningDate.ToString("MMMM dd, yyyy"))
 									.Replace("|%ENDING-DATE|%", record.JoiningDate.AddMonths(1).ToString("MMMM dd, yyyy"));
 
-			var parts = template.Split("To Whom It May Concern:");
+			var parts = template.Split("To Whom It May Concern");
 			column.Item().Text(parts[0]);
 			column.Item().Text("To Whom It May Concern:").SemiBold();
 			column.Item().Text(parts[1]);
