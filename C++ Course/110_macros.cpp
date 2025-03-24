@@ -25,4 +25,5 @@ auto main() -> int
     // std::string("234235");
 
     sizer(t) size{};
+    return 0;
 }
