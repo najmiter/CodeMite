@@ -1,4 +1,4 @@
-enum Color : byte
+enum Color : byte // can be any integral type
 {
     RED = 10,
     GREEN = 13,
