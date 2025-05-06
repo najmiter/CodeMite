@@ -42,7 +42,8 @@ function tryCatch(callback) {
     console.error('Type:', e.name);
     return { data: null, error: e };
   } finally {
-    return { data: null, error: null };
+    // ⚠️ DON'T DO THIS!
+    // return { data: null, error: null };
   }
   // unreachable
 }
