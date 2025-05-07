@@ -26,7 +26,7 @@ namespace CodeMite
 
                     Console.WriteLine("Processing the data...");
 
-                    // process the data
+                    // process the data here
                     ///
                }
                catch (ArgumentException ex)
