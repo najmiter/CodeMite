@@ -2,7 +2,7 @@
 
 using Int32List = List<int32_t>;
 
-int main() 
+auto main() -> int
 {
   Int32List list;
 
@@ -13,12 +13,11 @@ int main()
   list.add(54);
   list.add(21);
 
-
   Int32List::display(list);
 
   list.reverse();
 
   Int32List::display(list);
 
-  
+  return 0;
 }
